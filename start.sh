@@ -1,4 +1,3 @@
 #!/bin/bash
 
-service ngircd start
-tail -f /var/log/syslog
+/usr/sbin/ngircd -n -f /etc/ngircd.conf 

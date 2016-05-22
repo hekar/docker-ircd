@@ -1,11 +1,8 @@
-FROM ubuntu
+FROM fedora
 
-MAINTAINER Jason Carver <ut96caarrs@snkmail.com>
+MAINTAINER Hekar Khani <hekark@gmail.com>
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN apt-get update
-
-RUN apt-get install -y sysklogd ngircd
+RUN dnf install -y ngircd
 
 # expose IRC ports
 EXPOSE :443
@@ -13,7 +10,7 @@ EXPOSE :6664
 EXPOSE :6667
 
 add start.sh /start.sh
-add ngircd.conf /etc/ngircd/ngircd.conf
-add ngircd.motd /etc/ngircd/ngircd.motd
+add ngircd.conf /etc/ngircd.conf
+add ngircd.motd /etc/ngircd.motd
 
 CMD ["/start.sh"]
